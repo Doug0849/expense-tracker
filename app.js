@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 const routes = require('./routes')
 // const usePassport = require('./config/passport')
 
-// require('./config/mongoose')
+require('./config/mongoose')
 
 const app = express()
 const port = process.env.PORT
