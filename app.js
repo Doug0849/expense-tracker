@@ -23,6 +23,8 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true })) //body-parser
 app.use(methodOverride('_method'))
 
+app.use(routes)
+
 app.listen(port, () => {
   console.log('Server is started on http://localhost:3000 ...')
 })
