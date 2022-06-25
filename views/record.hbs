@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center fs-3 fw-bold mt-2 col-12">請輸入你的支出</div>
+    <span class="d-flex justify-content-center mt-2 mb-3 col-12">*為必填欄位</span>
+    <div class="col-3"></div>
+    <form action="/record" method="POST" id="record-form" class="row col-6">
+      <label for="item" class="fs-4 col-3 justify-content-center">名稱*：</label>
+      <input type="text" class="fs-4 col-9 mb-3 border border-secondary rounded" name="item" id="item" required>
+      <label for="date" class="fs-4 col-3 mb-3 justify-content-center">日期*：</label>
+      <input type="date" class="fs-4 col-9 mb-3 border border-secondary rounded" name="date" id="date" required>
+      <label for="category" class="fs-4 col-3 justify-content-center">類別*：</label>
+      <select name="category" id="category" class="fs-4 col-9 mb-3 border border-secondary rounded" required>
+        <option value="">請選擇類別</option>
+        <option value="1">家居物業</option>
+        <option value="2">交通出行</option>
+        <option value="3">休閒娛樂</option>
+        <option value="4">餐飲食品</option>
+        <option value="5">其他</option>
+      </select>
+      <label for="amount" class="fs-4 col-3 justify-content-center">金額*：</label>
+      <input type="number" class="fs-4 col-9 mb-3 border border-secondary rounded" name="amount" id="amount" inputmode="numeric" required>
+      <div class="col-3"></div>
+      <button id="record" class="btn btn-primary mt-3 col-6 border border-secondary rounded" type="submit">儲存</button>
+      <div class="col-3"></div>
+    </form>
+    <div class="col-3"></div>
+  </div>
+</div>
