@@ -1,0 +1,31 @@
+body {
+  height: 100%;
+}
+
+.category-container {
+  height: 40px;
+}
+
+.totalAmount-container {
+  height: 120px;
+}
+
+.totalAmount {
+  height:60px;
+  color: orange;
+  font-size: 75px;
+}
+
+.expense-item-container {
+  height: 60px;
+  border: auto;
+}
+
+.display-item {
+  background-color: #DDDDDD;
+  border-radius: 5px;
+}
+
+#btn-modify, #btn-delete {
+  line-height: 75px;
+}
