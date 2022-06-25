@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center fs-3 fw-bold mt-2 col-12">請輸入你的支出</div>
+    <span class="d-flex justify-content-center mt-2 mb-3 col-12">*為必填欄位</span>
+    <div class="col-3"></div>
+    <form action="/record/{{record._id}}?_method=PUT" method="POST" id="record-form" class="row col-6">
+      <label for="name" class="fs-4 col-3 justify-content-center">名稱*：</label>
+      <input type="text" class="fs-4 col-9 mb-3 border border-secondary rounded" name="name" id="name" value={{record.name}} required>
+      <label for="date" class="fs-4 col-3 mb-3 justify-content-center">日期*：</label>
+      <input type="date" class="fs-4 col-9 mb-3 border border-secondary rounded" name="date" id="date" value={{record.date}} required>
+      <label for="category" class="fs-4 col-3 justify-content-center">類別*：</label>
+      <select name="category" id="category" class="fs-4 col-9 mb-3 border border-secondary rounded" value={{record.category}} required>
+        <option value="">請選擇類別</option>
+        <option value="1"{{#if category1}}selected{{/if}}>家居物業</option>
+        <option value="2"{{#if category2}}selected{{/if}}>交通出行</option>
+        <option value="3"{{#if category3}}selected{{/if}}>休閒娛樂</option>
+        <option value="4"{{#if category4}}selected{{/if}}>餐飲食品</option>
+        <option value="5"{{#if category5}}selected{{/if}}>其他</option>
+      </select>
+      <label for="amount" class="fs-4 col-3 justify-content-center">金額*：</label>
+      <input type="number" class="fs-4 col-9 mb-3 border border-secondary rounded" name="amount" id="amount" inputmode="numeric" value={{record.amount}} required>
+      <div class="col-2"></div>
+      <button id="record" class="btn btn-primary col-6 border border-secondary rounded" type="submit">儲存</button>
+      <a href="/" class="btn btn-secondary ms-2 col-2">返回</a>
+      <div class="col-2"></div>
+    </form>
+    <div class="col-3"></div>
+  </div>
+</div>

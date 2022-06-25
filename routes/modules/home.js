@@ -11,11 +11,24 @@ router.get('/', (req, res) => {
     餐飲食品: "https://fontawesome.com/icons/utensils?style=solid",
     其他: "https://fontawesome.com/icons/pen?style=solid"
   }
+  const categoryArray = Object.keys(CATEGORY)
+  const iconHttpArray = Object.values(CATEGORY)
+
   Record.find()
-  .lean()
-  .sort({_id:'desc'})
-    .then(records => res.render('index', { records, CATEGORY }))
-  .catch(error => console.log(error))
+    .lean()
+    .sort({ _id: 'desc' })
+    .then(records => {
+      records.forEach(record => {
+        if (record.category === '1') {
+          const category1 = record.category
+        }
+        if (record.category === '2') {
+          const category1 = record.category
+        }
+      })
+      res.render('index', { records, CATEGORY })
+    })
+    .catch(error => console.log(error))
 })
 
 

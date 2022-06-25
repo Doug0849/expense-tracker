@@ -22,9 +22,10 @@
     <div class="expense-item-container col-12 mb-1 h-75">
       <div class="expense-item row">
         <div class="col-2"></div>
-        <div class="display-item col-6">
+        <div class="display-item col-5">
           <div class="row g-0 justify-content-start ms-2">
             <div class="col-1 d-flex justify-content-center align-items-center">
+              {{ > icon}}
               <i class="fa-solid fa-house fa-2xl "></i>
             </div>
             <div class="d-flex ms-3 mt-2 col-6">
@@ -33,13 +34,15 @@
                 <p class="date-text">{{this.date}}</p>
               </div>
             </div>
-            <div class="d-flex align-items-center justify-content-end col-4">
+            <div class="d-flex align-items-center justify-content-end col-2">
               <div class="text-cost fs-3">{{this.amount}}</div>
             </div>
           </div>
         </div>
-        <a href="" id="btn-modify" class="btn btn-success col-1 ms-1">修改</a>
-        <a href="" id="btn-delete" class="btn btn-danger col-1 ms-1">刪除</a>
+        <a href="/record/{{this._id}}/edit" id="btn-modify" class="btn btn-success col-1 ms-1 me-1">修改</a>
+        <form id="delete-form" action="/record/{{this._id}}/DELETE?_method=DELETE" method="POST">
+          <button id="btn-delete" class="btn btn-danger col-1">刪除</button>
+        </form>
       </div>
     </div>
     {{/each}}

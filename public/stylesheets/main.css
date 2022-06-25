@@ -28,3 +28,7 @@ body {
 #btn-modify, #btn-delete {
   line-height: 75px;
 }
+
+#delete-form {
+  display:contents;
+}
