@@ -16,8 +16,7 @@ body {
   font-size: 75px;
 }
 
-.expense-item-container {
-  height: 60px;
+.expense-item {
   border: auto;
 }
 
