@@ -9,7 +9,7 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-  res.render('index')
+  res.redirect('/')
 })
 
 router.get('/register', (req, res) => {

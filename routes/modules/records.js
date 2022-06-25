@@ -8,7 +8,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  
+  const { name, date, category, amount } = req.body
+  const userId = user.id
+  Record.create( name, date, category, amount, userId)
 })
 
 

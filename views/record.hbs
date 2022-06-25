@@ -4,8 +4,8 @@
     <span class="d-flex justify-content-center mt-2 mb-3 col-12">*為必填欄位</span>
     <div class="col-3"></div>
     <form action="/record" method="POST" id="record-form" class="row col-6">
-      <label for="item" class="fs-4 col-3 justify-content-center">名稱*：</label>
-      <input type="text" class="fs-4 col-9 mb-3 border border-secondary rounded" name="item" id="item" required>
+      <label for="name" class="fs-4 col-3 justify-content-center">名稱*：</label>
+      <input type="text" class="fs-4 col-9 mb-3 border border-secondary rounded" name="name" id="name" required>
       <label for="date" class="fs-4 col-3 mb-3 justify-content-center">日期*：</label>
       <input type="date" class="fs-4 col-9 mb-3 border border-secondary rounded" name="date" id="date" required>
       <label for="category" class="fs-4 col-3 justify-content-center">類別*：</label>
@@ -19,9 +19,10 @@
       </select>
       <label for="amount" class="fs-4 col-3 justify-content-center">金額*：</label>
       <input type="number" class="fs-4 col-9 mb-3 border border-secondary rounded" name="amount" id="amount" inputmode="numeric" required>
-      <div class="col-3"></div>
-      <button id="record" class="btn btn-primary mt-3 col-6 border border-secondary rounded" type="submit">儲存</button>
-      <div class="col-3"></div>
+      <div class="col-2"></div>
+      <button id="record" class="btn btn-primary col-6 border border-secondary rounded" type="submit">儲存</button>
+      <a href="/" class="btn btn-secondary ms-2 col-2">返回</a>
+      <div class="col-2"></div>
     </form>
     <div class="col-3"></div>
   </div>
