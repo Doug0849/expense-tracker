@@ -17,12 +17,12 @@ const recordSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    index: true,
-    required: true,
-  },
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   index: true,
+  //   required: true,
+  // },
   // categoryId: {
   //   type: Schema.Types.ObjectId,
   //   ref: "Category",

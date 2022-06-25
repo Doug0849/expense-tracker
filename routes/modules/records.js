@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const Record = require('./records')
+
+const Record = require('../../models/record')
 
 
 router.get('/', (req, res) => {
@@ -9,8 +10,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const { name, date, category, amount } = req.body
-  const userId = user.id
-  Record.create( name, date, category, amount, userId)
+  return Record.create({ name, date, category, amount })
+          .then(() => res.redirect('/'))
 })
 
 

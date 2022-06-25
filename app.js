@@ -3,6 +3,7 @@ const session = require('express-session')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
+
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
