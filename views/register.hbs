@@ -3,7 +3,7 @@
     <div class="col-md-6 m-auto">
       <div class="card card-body">
         <h1 class="text-center mt-3">註冊</h1>
-        {{!-- {{> message}} --}}
+        {{> message}}
         <form action="/users/register" method="POST">
           <div class="form-group">
             <label for="name">稱呼</label>
@@ -11,8 +11,7 @@
           </div>
           <div class="form-group">
             <label for="email">電子郵件</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="輸入個人電子信箱"
-              value="{{email}}">
+            <input type="email" id="email" name="email" class="form-control" placeholder="輸入個人電子信箱" value="{{email}}">
           </div>
           <div class="form-group">
             <label for="password">密碼</label>
@@ -21,8 +20,8 @@
           </div>
           <div class="form-group">
             <label for="confirmPassword">確認密碼</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
-              placeholder="再次確認密碼" value="{{confirmPassword}}">
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="再次確認密碼"
+              value="{{confirmPassword}}">
           </div>
           <div class="d-grid gap-2">
             <button type="submit" class="btn btn-primary btn-block">註冊</button>
