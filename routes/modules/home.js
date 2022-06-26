@@ -2,18 +2,47 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
+const record = require('../../models/record')
 
-const categoryFromDB = []
-Category.find().lean().then(result => {
-  let categoryFromDB = result
-})
 
 router.get('/', (req, res) => {
   const userId = req.user._id
   return Record.find({userId})
     .lean()
     .sort({ _id: 'desc' })
-    .then(records => res.render('index', { records }))
+    .then(records => {
+      let totalAmount = 0
+      records.forEach( record => {
+        totalAmount += Number(record.amount)
+      })
+      return Category.find()
+        .lean()
+        .sort({ _id: 'asc' })
+        .then(categories => {
+          return res.render('index', { records, categories, totalAmount })
+        })
+    })
+    .catch(error => console.log(error))
+})
+
+router.get('/category', (req, res) => {
+  const userId = req.user._id
+  const categoryId = req.query.category
+  return Record.find({ userId, categoryId })
+    .lean()
+    .sort({ _id: 'desc' })
+    .then(records => {
+      let totalAmount = 0
+      records.forEach(record => {
+        totalAmount += Number(record.amount)
+      })
+      return Category.find()
+        .lean()
+        .sort({ _id: 'asc' })
+        .then(categories => {
+          return res.render('index', { records, categories, totalAmount })
+        })
+    })
     .catch(error => console.log(error))
 })
 

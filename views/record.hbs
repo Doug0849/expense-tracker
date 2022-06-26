@@ -9,7 +9,7 @@
       <label for="date" class="fs-4 col-3 mb-3 justify-content-center">日期*：</label>
       <input type="date" class="fs-4 col-9 mb-3 border border-secondary rounded" name="date" id="date" required>
       <label for="category" class="fs-4 col-3 justify-content-center">類別*：</label>
-      <select name="category" id="category" class="fs-4 col-9 mb-3 border border-secondary rounded" required>
+      <select name="categoryId" id="categoryId" class="fs-4 col-9 mb-3 border border-secondary rounded" required>
         <option>請選擇類別</option>
         {{#each category}}
         <option value="{{this._id}}">{{this.name}}</option>

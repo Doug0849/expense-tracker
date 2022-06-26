@@ -15,10 +15,15 @@ router.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 router.post('/', (req, res) => {
-  const { name, date, category, amount } = req.body
+  const { name, date, categoryId, amount } = req.body
   const userId = req.user._id
-  return Record.create({ name, date, category, amount, userId })
-    .then(() => res.redirect('/'))
+  return Category.findOne({ categoryId })
+    .then(category => {
+      const categoryIcon = category.icon
+      return Record.create({ name, date, categoryId, amount, categoryIcon, userId })
+        .then(() => res.redirect('/'))
+    })
+  
 })
 
 router.get('/:id/edit', (req, res) => {
@@ -43,13 +48,16 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  const { name, date, category, amount } = req.body
   return Record.findOne({ _id, userId })
-    .then(record => {
-      record = Object.assign(record, req.body)
-      return record.save()
-    })
-    .then(() => res.redirect('/'))
+  .then(record => {
+    return Category.findOne({ _id: req.body.categoryId })
+      .then(category => {
+        record.categoryId = category._id
+        record.categoryIcon = category.icon
+        record = Object.assign(record, req.body)
+        return record.save()      
+      })
+    }).then(() => res.redirect('/'))
     .catch(err => console.log(err))
 })
 

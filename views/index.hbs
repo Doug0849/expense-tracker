@@ -1,21 +1,21 @@
 <div class="container">
   <div id="display" class="container d-flex flex-column align-items-center mt-3 w-100">
     <div class="category-container row col-12">
+      <form action="/category" method="GET" class="d-flex justify-content-center">
       <div class="col-2"></div>
-      <select id="category" name="category" class="col-6">
-        <option value="">類別</option>
-        <option value="1">家居物業</option>
-        <option value="2">交通出行</option>
-        <option value="3">休閒娛樂</option>
-        <option value="4">餐飲食品</option>
-        <option value="5">其他</option>
-      </select>
+        <select id="category" name="category" class="col-6" onchange="submit()">
+          <option value="">類別</option>
+          {{#each categories}}
+          <option value="{{this._id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
       <div class="col-4"></div>
+      </form>
     </div>
     <div class="totalAmount-container row col-12 mt-2 mb-1">
       <div class="col-2"></div>
       <div class="countText col-2 mt-3 fs-3 fw-bold text-secondary">總金額</div>
-      <div id="totalAmount" class="totalAmount col-4 mt-3 fw-bold text-end">123456</div>
+      <div id="totalAmount" class="totalAmount col-4 mt-3 fw-bold text-end">{{totalAmount}}</div>
       <div class="col-4"></div>
     </div>
     {{#each records}}
