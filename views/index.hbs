@@ -4,7 +4,7 @@
       <form action="/category" method="GET" class="d-flex justify-content-center">
       <div class="col-2"></div>
         <select id="category" name="category" class="col-6" onchange="submit()">
-          <option value="">類別</option>
+          <option value="">{{#if correctCategory}}{{correctCategory}}{{else}}類別{{/if}}</option>
           {{#each categories}}
           <option value="{{this._id}}">{{this.name}}</option>
           {{/each}}

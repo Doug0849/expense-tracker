@@ -40,7 +40,10 @@ router.get('/category', (req, res) => {
         .lean()
         .sort({ _id: 'asc' })
         .then(categories => {
-          return res.render('index', { records, categories, totalAmount })
+          const correctCategory = categories.find( category => {
+            return category._id.toString() === categoryId
+          }).name
+          return res.render('index', { records, categories, totalAmount, correctCategory })
         })
     })
     .catch(error => console.log(error))
