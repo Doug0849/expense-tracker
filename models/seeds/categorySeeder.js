@@ -5,26 +5,20 @@ if (process.env.NODE_ENV !== 'production') {
 }
 const db = require('../../config/mongoose')
 
-const CATEGORY = {
-  家居物業: "https://fontawesome.com/icons/home?style=solid",
-  交通出行: "https://fontawesome.com/icons/shuttle-van?style=solid",
-  休閒娛樂: "https://fontawesome.com/icons/grin-beam?style=solid",
-  餐飲食品: "https://fontawesome.com/icons/utensils?style=solid",
-  其他: "https://fontawesome.com/icons/pen?style=solid"
-}
-
-const categoryArray = Object.keys(CATEGORY)
-const iconHttpArray = Object.values(CATEGORY)
+const categoryList = [
+  { name: '家居物業', icon: 'fa-house' },
+  { name: '交通出行', icon: 'fa-van-shuttle' },
+  { name: '休閒娛樂', icon: 'fa-face-grin-beam' },
+  { name: '餐飲食品', icon: 'fa-utensils' },
+  { name: '其他', icon: 'fa-pen' }
+]
 
 db.once('open', () => {
-  for (let i = 0; i < categoryArray.length; i++) {
-    Category.create({
-      id: i,
-      name: categoryArray[i],
-      icon: iconHttpArray[i],
-    })
-  }
-  console.log('done')
+  Promise.all(Array.from(categoryList, category => {
+    return Category.create(category)
+  }))
+  .then(() => {
+    console.log('Category seed is created.')
+    process.exit()
+  })
 })
-
-// 要改使用 Promise.all 的寫法

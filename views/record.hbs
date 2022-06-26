@@ -10,12 +10,10 @@
       <input type="date" class="fs-4 col-9 mb-3 border border-secondary rounded" name="date" id="date" required>
       <label for="category" class="fs-4 col-3 justify-content-center">類別*：</label>
       <select name="category" id="category" class="fs-4 col-9 mb-3 border border-secondary rounded" required>
-        <option value="">請選擇類別</option>
-        <option value="1">家居物業</option>
-        <option value="2">交通出行</option>
-        <option value="3">休閒娛樂</option>
-        <option value="4">餐飲食品</option>
-        <option value="5">其他</option>
+        <option>請選擇類別</option>
+        {{#each category}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
       </select>
       <label for="amount" class="fs-4 col-3 justify-content-center">金額*：</label>
       <input type="number" class="fs-4 col-9 mb-3 border border-secondary rounded" name="amount" id="amount" inputmode="numeric" required>
