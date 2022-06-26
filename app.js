@@ -21,6 +21,12 @@ app.set('view engine','hbs')
 
 app.use(express.static('public'))
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+}))
+
 app.use(express.urlencoded({extended: true })) //body-parser
 app.use(methodOverride('_method'))
 
