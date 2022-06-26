@@ -8,12 +8,12 @@ const Category = require('../../models/category')
 router.get('/', (req, res) => {
   return Category.find()
     .lean()
-    .sort({_id:'asc'})
+    .sort({ _id: 'asc' })
     .then((category) => {
       return res.render('record', { category })
     })
     .catch(error => console.log(error))
-  })
+})
 router.post('/', (req, res) => {
   const { name, date, category, amount } = req.body
   const userId = req.user._id
@@ -27,26 +27,15 @@ router.get('/:id/edit', (req, res) => {
   return Record.findOne({ _id, userId })
     .lean()
     .then(record => {
-      if (record.category === "家居物業") {
-        const category1 = 'selected'
-        return res.render('edit', { record, category1})
-      }
-      if (record.category === "交通出行") {
-        const category2 = 'selected'
-        return res.render('edit', { record, category2 })
-      }
-      if (record.category === "休閒娛樂") {
-        const category3 = 'selected'
-        return res.render('edit', { record, category3 })
-      }
-      if (record.category === "餐飲食品") {
-        const category4 = 'selected'
-        return res.render('edit', { record, category4 })
-      }
-      if (record.category === "其他") {
-        const category5 = 'selected'
-        return res.render('edit', { record, category5 })
-      }
+      return Category.find()
+        .lean()
+        .sort({ _id: 'asc' })
+        .then( categories => {
+          const correctCategory = categories.find( category => {
+            return category._id.toString() === record.categoryId.toString()
+          })
+          return res.render('edit', { record, categories, correctCategory })
+        })
     })
     .catch(err => console.log(err))
 })

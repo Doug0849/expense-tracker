@@ -77,7 +77,7 @@ db.once('open', () => {
                       return Record.create({
                         name:expanse.name,
                         date:expanse.date,
-                        category: category._id,
+                        categoryId: category._id,
                         amount: expanse.amount,
                         categoryIcon: category.icon,
                         userId: user._id,

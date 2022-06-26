@@ -13,8 +13,10 @@ const recordSchema = new Schema({
     type: Number,
     required: true,
   },
-  category: {
-    type: String,
+  categoryId: {
+    type: Schema.Types.ObjectId,
+    ref: 'category',
+    index: true,
     required: true,
   },
   categoryIcon: {
